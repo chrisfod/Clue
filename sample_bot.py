@@ -33,14 +33,14 @@ class SampleBot(PlayerInterface):
         """set up initial clauses"""
 
         """Each card is in at least one place"""
-        for i in num_cards:
+        for i in range(0, num_cards):
             for j in range(0, num_players + 1):
                 clause.append(i + j * num_cards + 1)
             sat_solver.add_clause(clause)
             clause.clear()
 
         """If a card is in one place, it cannot be in another place"""
-        for i in num_cards:
+        for i in range(0, num_cards):
             for j in range(0, num_players + 1):
                 clause = []
                 for k in range(j, num_players + 1):
@@ -51,39 +51,39 @@ class SampleBot(PlayerInterface):
 
         """At least one of each category is in the case file"""
         for i in Suspect:
-            clause.append(i + (num_players + 1)(num_cards + 1) + 1)
+            clause.append(i + (num_players + 1) * (num_cards + 1) + 1)
         sat_solver.add_clause(clause)
         clause.clear()
 
         for i in Location:
-            clause.append(i + (num_players + 1)(num_cards + 1) + 1)
+            clause.append(i + (num_players + 1) * (num_cards + 1) + 1)
         sat_solver.add_clause(clause)
         clause.clear()
 
         for i in Weapon:
-            clause.append(i + (num_players + 1)(num_cards + 1) + 1)
+            clause.append(i + (num_players + 1) * (num_cards + 1) + 1)
         sat_solver.add_clause(clause)
         clause.clear()
 
         """No two cards in each category are in the case file"""
         for i in Suspect:
             for j in range(i, len(Suspect)):
-                clause.append(-1 * (i + (num_players + 1)(num_cards + 1)))
-                clause.append(-1 * (j + (num_players + 1)(num_cards + 1)))
+                clause.append(-1 * (i + (num_players + 1) * (num_cards + 1)))
+                clause.append(-1 * (j + (num_players + 1) * (num_cards + 1)))
                 sat_solver.add_clause(clause)
                 clause.clear()
 
         for i in Location:
             for j in range(i, len(Location)):
-                clause.append(-1 * (i + (num_players + 1)(num_cards + 1)))
-                clause.append(-1 * (j + (num_players + 1)(num_cards + 1)))
+                clause.append(-1 * (i + (num_players + 1) * (num_cards + 1)))
+                clause.append(-1 * (j + (num_players + 1) * (num_cards + 1)))
                 sat_solver.add_clause(clause)
                 clause.clear()
 
         for i in Weapon:
             for j in range(i, len(Weapon)):
-                clause.append(-1 * (i + (num_players + 1)(num_cards + 1)))
-                clause.append(-1 * (j + (num_players + 1)(num_cards + 1)))
+                clause.append(-1 * (i + (num_players + 1) * (num_cards + 1)))
+                clause.append(-1 * (j + (num_players + 1) * (num_cards + 1)))
                 sat_solver.add_clause(clause)
                 clause.clear()
 

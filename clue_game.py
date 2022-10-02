@@ -121,7 +121,7 @@ class PlayerInterface(ABC):
         num_players: 3<=num_players<=6
 
         Parameters:
-        player_id: The absolete position of self in the game.
+        player_id: The absolute position of self in the game.
         num_players: The number of players in the game.
         face_up_cards: The cards that are face up and known to all players.
         face_down_cards: The cards that are only known to self.
@@ -183,7 +183,7 @@ class PlayerInterface(ABC):
         suggestion: A Suspect, a Location, and a Weapon card.
         result: Either one of the cards in the suggestion, along with the
         index of the player who has that card, or None. If it's a card and
-        player index, than no player between self and that player index
+        player index, then no player between self and that player index
         (incrementing, and wrapping around at numPlayers to 0) has any of
         the cards in suggestion. If it's None, then no other player has any
         of the cards in suggestion.
